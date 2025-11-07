@@ -21,3 +21,16 @@ Open http://localhost:3000
 then import the dashboard file: dashboards/monad-grafana.json
 
 This dashboard will display basic node health and metrics.
+
+### Using docker-compose
+Copy `.env.example` to `.env` and adjust ports if needed:
+
+```bash
+cp .env.example .env
+cd quickstart
+docker compose up -d
+
+
+Prometheus → http://localhost:${PROMETHEUS_PORT}
+
+Grafana → http://localhost:${GRAFANA_PORT}
