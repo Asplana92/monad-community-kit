@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  monad-node:
+    image: ghcr.io/monad-xyz/monad-node:latest
+    container_name: monad-node
+    restart: unless-stopped
+    ports:
+      - "8545:8545"   # RPC
+    volumes:
+      - monad-data:/var/lib/monad
+    environment:
+      - MONAD_NETWORK=testnet
+      - MONAD_LOG_LEVEL=info
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost:8545"]
+      interval: 30s
+      timeout: 5s
+      retries: 10
+
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports: ["9090:9090"]
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:latest
+    ports: ["3000:3000"]
+    volumes:
+      - grafana-data:/var/lib/grafana
+    restart: unless-stopped
+
+volumes:
+  monad-data:
+  grafana-data:
