@@ -1,37 +1,28 @@
 version: "3.8"
 
 services:
-  monad-node:
-    image: ghcr.io/monad-xyz/monad-node:latest
-    container_name: monad-node
-    restart: unless-stopped
-    ports:
-      - "8545:8545"   # RPC
-    volumes:
-      - monad-data:/var/lib/monad
-    environment:
-      - MONAD_NETWORK=testnet
-      - MONAD_LOG_LEVEL=info
-    healthcheck:
-      test: ["CMD", "curl", "-sf", "http://localhost:8545"]
-      interval: 30s
-      timeout: 5s
-      retries: 10
-
   prometheus:
     image: prom/prometheus:latest
+    container_name: monad-prometheus
+    ports: ["${PROMETHEUS_PORT:-9090}:9090"]
     volumes:
-      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
-    ports: ["9090:9090"]
+      - ../monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ../monitoring/alert_rules.yml:/etc/prometheus/alert_rules.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--web.enable-lifecycle'
     restart: unless-stopped
 
   grafana:
     image: grafana/grafana:latest
-    ports: ["3000:3000"]
+    container_name: monad-grafana
+    ports: ["${GRAFANA_PORT:-3000}:3000"]
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer
     volumes:
       - grafana-data:/var/lib/grafana
     restart: unless-stopped
 
 volumes:
-  monad-data:
   grafana-data:
