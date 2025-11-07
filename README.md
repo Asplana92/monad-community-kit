@@ -34,3 +34,14 @@ PRs and issues are welcome. If you have scripts or dashboards for Monad nodes, f
 - [Setup Guide](docs/setup_guide.md)
 - [Grafana Dashboard JSON](dashboards/monad-grafana.json)
 - [Prometheus Config](monitoring/prometheus.yml)
+
+---
+
+### 🧠 Maintainer
+
+Project maintained by [Asplana92](https://github.com/Asplana92)  
+Part of the **Web3-Journey** and **Monad Path to Rank S** initiatives 🚀  
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Built with Docker](https://img.shields.io/badge/Built%20with-Docker-blue)]()
+[![Monitoring: Grafana+Prometheus](https://img.shields.io/badge/Monitoring-Grafana%2BPrometheus-yellow)]()
