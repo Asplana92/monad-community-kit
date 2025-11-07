@@ -1,0 +1,19 @@
+# System
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+*.tmp
+*.bak
+
+# Docker
+docker-compose.override.yml
+*/__pycache__/
+
+# Prometheus / Grafana data
+prometheus_data/
+grafana_data/
+
+# Env
+.env
