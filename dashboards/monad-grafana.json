@@ -1,0 +1,47 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "Monad Node Metrics",
+    "tags": ["monad", "infra", "testnet"],
+    "timezone": "browser",
+    "panels": [
+      {
+        "type": "graph",
+        "title": "CPU Usage",
+        "targets": [
+          {
+            "expr": "rate(process_cpu_seconds_total[1m])",
+            "legendFormat": "CPU"
+          }
+        ],
+        "lines": true,
+        "fill": 1,
+        "linewidth": 2
+      },
+      {
+        "type": "graph",
+        "title": "Memory Usage (MB)",
+        "targets": [
+          {
+            "expr": "process_resident_memory_bytes / 1024 / 1024",
+            "legendFormat": "Memory"
+          }
+        ],
+        "lines": true,
+        "fill": 1,
+        "linewidth": 2
+      },
+      {
+        "type": "graph",
+        "title": "RPC Requests",
+        "targets": [
+          {
+            "expr": "rate(http_requests_total[1m])",
+            "legendFormat": "RPC Calls"
+          }
+        ]
+      }
+    ]
+  },
+  "overwrite": true
+}
