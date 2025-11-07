@@ -1,0 +1,19 @@
+groups:
+  - name: monad-alerts
+    rules:
+      - alert: MonadRPCDown
+        expr: up{job="monad_rpc"} == 0
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Monad RPC endpoint is down"
+          description: "Prometheus cannot reach MONAD RPC for 2 minutes."
+
+      - alert: HighMemoryUsage
+        expr: process_resident_memory_bytes / 1024 / 1024 > 8000
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High memory usage on host"
