@@ -1,0 +1,14 @@
+{
+  "title": "Monad Node Overview",
+  "timezone": "browser",
+  "panels": [
+    {
+      "type": "stat",
+      "title": "RPC Health",
+      "datasource": null,
+      "targets": []
+    }
+  ],
+  "schemaVersion": 38,
+  "version": 1
+}
