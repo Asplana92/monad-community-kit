@@ -26,3 +26,11 @@ See the full journey: [Web3-Journey Repository](https://github.com/Asplana92/Web
 
 ## 🧰 Tags
 `Monad` · `DevOps` · `Monitoring` · `Prometheus` · `Grafana` · `Node` · `Automation`
+
+## 🤝 Contributing
+PRs and issues are welcome. If you have scripts or dashboards for Monad nodes, feel free to open a discussion or PR.
+
+## Quick links
+- [Setup Guide](docs/setup_guide.md)
+- [Grafana Dashboard JSON](dashboards/monad-grafana.json)
+- [Prometheus Config](monitoring/prometheus.yml)
