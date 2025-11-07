@@ -1,47 +1,65 @@
-# Monad Community Kit ⚙️
+# 🧰 Monad Community Kit
 
-A collection of tools, guides, and configurations for running and monitoring Monad nodes in testnet environments.  
-Built and maintained by early contributors from the Monad ecosystem.
-
----
-
-## 📦 What's Inside
-- **Node Deployment Templates** — Docker & systemd setups  
-- **Monitoring Stack** — Prometheus + Grafana with custom dashboards  
-- **Automation Scripts** — Health checks, log rotation, and uptime tracking  
-- **Docs & Reports** — Infrastructure reports and performance notes
+A complete open-source toolkit for running, monitoring, and maintaining **Monad nodes** in devnet and testnet environments.  
+Built and maintained as part of the **Monad Path to Rank S** initiatives by [@02Tolik02](https://x.com/02Tolik02).
 
 ---
 
-## 🧩 Goals
-To simplify participation in Monad testnets by providing reusable infra setups and open documentation for builders.
+## 🚀 Quick Start
 
----
+```bash
+git clone https://github.com/Asplana92/monad-community-kit
+cd monad-community-kit
+cp .env.example .env
+docker compose -f quickstart/docker-compose.yml up -d
 
-## 🧠 Maintainers
-Built by [@02Tolik02](https://x.com/02Tolik02) — Web3 Infra & Testnet Explorer  
-See the full journey: [Web3-Journey Repository](https://github.com/Asplana92/Web3-Journey)
+Once started:
 
----
+Grafana: http://localhost:3000
 
-## 🧰 Tags
-`Monad` · `DevOps` · `Monitoring` · `Prometheus` · `Grafana` · `Node` · `Automation`
+Prometheus: http://localhost:9090
 
-## 🤝 Contributing
-PRs and issues are welcome. If you have scripts or dashboards for Monad nodes, feel free to open a discussion or PR.
+Node Health: via scripts/monad-health.sh
 
-## Quick links
-- [Setup Guide](docs/setup_guide.md)
-- [Grafana Dashboard JSON](dashboards/monad-grafana.json)
-- [Prometheus Config](monitoring/prometheus.yml)
+📦 Structure
 
----
+monad-community-kit/
+├── dashboards/
+│   ├── monad-grafana.json
+│   └── monitoring/
+│       ├── prometheus.yml
+│       └── alert_rules.yml
+├── quickstart/
+│   └── docs/setup_guide.md
+├── scripts/
+│   └── monad-health.sh
+├── .env.example
+├── .gitignore
+├── LICENSE
+├── CONTRIBUTING.md
+└── README.md
 
-### 🧠 Maintainer
 
-Project maintained by [Asplana92](https://github.com/Asplana92)  
-Part of the **Web3-Journey** and **Monad Path to Rank S** initiatives 🚀  
+⚙️ Features
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Built with Docker](https://img.shields.io/badge/Built%20with-Docker-blue)]()
-[![Monitoring: Grafana+Prometheus](https://img.shields.io/badge/Monitoring-Grafana%2BPrometheus-yellow)]()
+Prebuilt Prometheus + Grafana monitoring stack
+
+Ready alert rules for Node & RPC uptime
+
+Automated health script for quick diagnostics
+
+Clean .env and .gitignore for easy reuse
+
+MIT license, open for contributions
+
+🧠 Maintainer
+
+Built by @02Tolik02
+ — Web3 Infra & Testnet Explorer
+Part of the Web3 Journey Repository
+
+🪄 License
+
+MIT License
+ © 2025 Asplana92
+Feel free to fork, improve, and contribute.
